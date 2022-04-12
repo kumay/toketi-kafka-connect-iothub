@@ -4,6 +4,7 @@ package com.microsoft.azure.iot.kafka.connect.source
 
 import java.time.{Duration, Instant}
 import java.util.concurrent.Executors
+import java.util.concurrent.ScheduledExecutorService
 
 import com.microsoft.azure.eventhubs.{EventHubClient, EventPosition, PartitionReceiver}
 
@@ -15,8 +16,8 @@ class EventHubReceiver(val connectionString: String, val receiverConsumerGroup: 
 
   private[this] var isClosing = false
 
-  private val executorService = Executors.newSingleThreadExecutor()
-  private val eventHubClient = EventHubClient.createSync(connectionString, executorService)
+  private val executorService = Executors.newSingleThreadScheduledExecutor()
+  private val eventHubClient = EventHubClient.createFromConnectionStringSync(connectionString, executorService)
   if (eventHubClient == null) {
     throw new IllegalArgumentException("Unable to create EventHubClient from the input parameters.")
   }
