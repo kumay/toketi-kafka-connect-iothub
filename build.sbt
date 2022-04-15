@@ -15,10 +15,10 @@ libraryDependencies ++= {
   val kafkaVersion = "2.8.1"
   val azureEventHubSDKVersion = "3.2.2"
   val scalaLoggingVersion = "3.5.0"
-  val logbackClassicVersion = "1.1.7"
+  val logbackClassicVersion = "1.2.11"
   val scalaTestVersion = "3.0.0"
   val configVersion = "1.3.1"
-  val json4sVersion = "3.5.0"
+  val json4sVersion = "3.6.0"
   val iotHubServiceClientVersion = "1.30.0"
 
   Seq(
@@ -37,6 +37,23 @@ libraryDependencies ++= {
 }
 
 assemblyJarName in assembly := s"kafka-connect-iothub-assembly_2.11-$iotHubKafkaConnectVersion.jar"
+assemblyMergeStrategy in assembly := {
+  case PathList("javax", "servlet", xs @ _*)         => MergeStrategy.first
+  case PathList(ps @ _*) if ps.last endsWith ".html" => MergeStrategy.first
+  case PathList(ps @ _*) if ps.last endsWith ".properties" => MergeStrategy.first
+  case PathList(ps @ _*) if ps.last endsWith ".xml" => MergeStrategy.first
+  case PathList(ps @ _*) if ps.last endsWith ".types" => MergeStrategy.first
+  case PathList(ps @ _*) if ps.last endsWith ".class" => MergeStrategy.first
+  case "application.conf"                            => MergeStrategy.concat
+  case "unwanted.txt"                                =>
+MergeStrategy.discard
+  case PathList("META-INF", "MANIFEST.MF") => MergeStrategy.discard
+  case PathList("META-INF", "mailcap.default") => MergeStrategy.discard
+  case PathList("META-INF", "mimetypes.default") => MergeStrategy.discard
+ case x =>
+    val oldStrategy = (assemblyMergeStrategy in assembly).value
+    oldStrategy(x)
+}
 
 publishArtifact in Test := true
 publishArtifact in(Compile, packageDoc) := true
@@ -59,3 +76,4 @@ pomExtra :=
     <url>https://github.com/Azure/toketi-kafka-connect-iothub</url>
     <scm><url>https://github.com/Azure/toketi-kafka-connect-iothub</url></scm>
     <developers><developer><id>microsoft</id><name>Microsoft</name></developer></developers>
+
