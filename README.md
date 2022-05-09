@@ -3,15 +3,13 @@
 This is forked project from https://github.com/Azure/toketi-kafka-connect-iothub.
 
 
-#### Reason for the fork
+### Reason for the fork
 
 I had a need to use Azure IoTHub with Kafka (Confluent version) and faced some difficulty using original **toketi-kafka-connect-iothub** connector.
 
 The original repo is archived and no activity observed so I created a fork.
-
 I updated the versions of related packages, fixes related to sbt version update and some package name change in codes.
 No functionality or performance improvement is implemented.
-
 All the credit gose to original creater of this plugins. 
 
 (I may have some credit making this connector buildable again)
@@ -31,11 +29,11 @@ Intended for use with confluent connect cluster.
 
 Please see confluent documentation.
 
-How to prepare connector .jar file
+**How to prepare connector .jar file**
 
 https://docs.confluent.io/platform/current/connect/devguide.html#packaging
 
-How to install prepared connector .jar file to connect
+**How to install prepared connector .jar file to connect**
 
 https://docs.confluent.io/home/connect/self-managed/userguide.html#installing-kconnect-plugins
 
