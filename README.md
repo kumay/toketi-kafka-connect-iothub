@@ -3,7 +3,8 @@
 This is forked project from https://github.com/Azure/toketi-kafka-connect-iothub.
 
 
-**Reason for the fork**
+#### Reason for the fork
+
 I had a need to use Azure IoTHub with Kafka (Confluent version) and faced some difficulty using original **toketi-kafka-connect-iothub** connector.
 The original repo is archived and no activity observed so I created a fork.
 I updated the versions of related packages, fixes related to sbt version update and some package name change in codes.
