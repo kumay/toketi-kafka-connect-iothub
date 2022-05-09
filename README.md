@@ -1,14 +1,35 @@
 # Kafka Connect Azure IoT Hub (fixed version)
 
+This is forked project from https://github.com/Azure/toketi-kafka-connect-iothub.
+
+
+**Reason for the fork**
+I had a need to use Azure IoTHub with Kafka (Confluent version) and faced some difficulty using original **toketi-kafka-connect-iothub** connector.
+The original repo is archived and no activity observed so I created a fork.
+I updated the versions of related packages, fixes related to sbt version update and some package name change in codes.
+No functionality or performance improvement is implemented.
+
+All the credit gose to original creater of this plugins. (I may have some credit making this connector buildable again)
+
+
 ### how to build
 
 ```
 $ sbt assembly
 ```
 
-That's IT !!!
-
 this commend will create fat jar under "target" directry.
+
+### how to use
+
+Intended for use with confluent connect cluster.
+Please see confluent documentation.
+
+How to prepare connector .jar file
+https://docs.confluent.io/platform/current/connect/devguide.html#packaging
+
+How to install prepared connector .jar file to connect
+https://docs.confluent.io/home/connect/self-managed/userguide.html#installing-kconnect-plugins
 
 
 #### prerequisite
@@ -21,6 +42,8 @@ this commend will create fat jar under "target" directry.
 
 Windows 10,  WSL2 with ubuntu 18.04.
 
+
+## Orignal Readme text about this connector
 ________________________
 
 Kafka Connect Azure IoT Hub consists of 2 connectors - a source connector and a sink connector. The source connector
