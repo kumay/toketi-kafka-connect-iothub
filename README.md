@@ -10,7 +10,8 @@ I had a need to use Azure IoTHub with Kafka (Confluent version) and faced some d
 The original repo is archived and no activity observed so I created a fork.
 I updated the versions of related packages, fixes related to sbt version update and some package name change in codes.
 No functionality or performance improvement is implemented.
-All the credit gose to original creater of this plugins. 
+
+All the credit goes to the original creaters. 
 
 (I may have some credit making this connector buildable again)
 
