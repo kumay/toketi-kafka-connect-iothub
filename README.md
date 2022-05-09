@@ -1,4 +1,26 @@
-# Kafka Connect Azure IoT Hub
+# Kafka Connect Azure IoT Hub (fixed version)
+
+### how to build
+
+```
+$ sbt assembly
+```
+
+That's IT !!!
+
+this commend will create fat jar under "target" directry.
+
+
+#### prerequisite
+
+1. install scala 2.1X (will not work with scala 3)
+2. install sbt
+
+
+#### tested environment
+
+Windows 10,  WSL2 with ubuntu 18.04.
+
 ________________________
 
 Kafka Connect Azure IoT Hub consists of 2 connectors - a source connector and a sink connector. The source connector
@@ -24,3 +46,5 @@ friendly bot will remind you about it when you submit a pull-request.
 
 If you are sending a pull request, we kindly request to check the code style with IntelliJ IDEA, importing the settings
 from `Codestyle.IntelliJ.xml`.
+
+
